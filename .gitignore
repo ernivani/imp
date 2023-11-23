@@ -1,0 +1,24 @@
+# Object files
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Shared object files
+*.so
+
+# Executable files
+*.exe
+*.out
+imp
+
+# Backup files
+*~
+
+# Other files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo

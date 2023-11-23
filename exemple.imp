@@ -1,0 +1,31 @@
+// Declare variables
+int counter = 10;
+float temperature = 36.6;
+string name = "ImpScript";
+
+// Print variables
+print("Counter value: ");
+println(counter);
+
+print("Temperature: ");
+println(temperature);
+
+println("Name: ");
+println(name);
+
+// // Conditional statement (if supported)
+// if (counter > 5) {
+//     println("Counter is greater than 5");
+// }
+
+// Loop statement (if supported)
+// int i = 0;
+// while (i < counter) {
+//     println(i);
+//     i = i + 1;
+// }
+
+// Update and print a variable
+int counter = 20;
+println("Updated Counter: ");
+println(counter);
