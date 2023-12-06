@@ -10,13 +10,13 @@ println(counter);
 print("Temperature: ");
 println(temperature);
 
-println("Name: ");
+print("Name: ");
 println(name);
 
-// // Conditional statement (if supported)
-// if (counter > 5) {
-//     println("Counter is greater than 5");
-// }
+// Conditional statement (if supported)
+if (counter > 5) {
+    println("Counter is greater than 5");
+}
 
 // Loop statement (if supported)
 // int i = 0;
@@ -25,7 +25,19 @@ println(name);
 //     i = i + 1;
 // }
 
+// // Function declaration
+// int fun add(int a, int b) {
+//     return a + b;
+// }
+
+
 // Update and print a variable
-int counter = 20;
-println("Updated Counter: ");
+counter = 20;
+print("Updated Counter: ");
 println(counter);
+
+// handle error
+aaa = 10;
+zeafza;
+
+fé"azfzae"
