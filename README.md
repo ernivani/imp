@@ -1,32 +1,42 @@
 # Imp Programming Language
 
 ## Overview
-Imp is a custom scripting language designed for flexible and dynamic scripting. It allows variable declarations, supports basic data types like integers, floats, and strings, and enables users to run custom `.imp` scripts.
+Imp is a versatile and user-friendly programming language designed for scripting and automation. It offers a powerful yet simple syntax, making it ideal for both beginners and experienced programmers.
 
 ## Getting Started
+This section will guide you through the initial setup and basic usage of Imp.
 
 ### Prerequisites
-- GCC Compiler
+- Linux operating system
+- GCC compiler
 - Make
 
 ### Building the Project
-To build the project, run the following command in the project directory:
-
-```bash
-make
-```
+1. Clone the repository: `git clone [repository-url]`
+2. Navigate to the project directory: `cd imp`
+3. Compile the source code:
+   ```
+   make all
+   ```
+4. Install Imp (optional):
+   ```
+   sudo make install
+   ```
 
 ### Running Scripts
-To run an Imp script, use the following command:
-
+To execute an Imp script, use the following command:
 ```bash
-./imp --run your_script.imp
+./imp [script-file.imp]
 ```
-
-Replace `your_script.imp` with the path to your Imp script.
+For example, to run a script named `example.imp`, use:
+```bash
+./imp example.imp
+```
+If you have installed Imp, you can run scripts from any location.
 
 ## Contributing
-Contributions to the Imp project are welcome. Please send pull requests for any enhancements.
+We welcome contributions! Please fork the repository and submit a pull request with your changes.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+```
