@@ -1,42 +1,38 @@
 # Imp Programming Language
 
 ## Overview
-Imp is a versatile and user-friendly programming language designed for scripting and automation. It offers a powerful yet simple syntax, making it ideal for both beginners and experienced programmers.
+Imp is a scripting and automation programming language known for its versatility and user-friendly nature. It is suited for a wide range of users, from beginners to seasoned programmers, thanks to its powerful and simple syntax.
 
 ## Getting Started
-This section will guide you through the initial setup and basic usage of Imp.
 
 ### Prerequisites
-- Linux operating system
-- GCC compiler
-- Make
+- Linux OS
+- GCC Compiler
+- Make Build System
 
 ### Building the Project
-1. Clone the repository: `git clone https://github.com/ernivani/imp.git`
-2. Navigate to the project directory: `cd imp`
-3. Compile the source code:
-   ```
-   make all
-   ```
-4. Install Imp (optional):
-   ```
-   sudo make install
-   ```
+1. Clone the repo: `git clone https://github.com/ernivani/imp.git`
+2. Enter the directory: `cd imp`
+3. Compile the code: `make all`
+4. Optional system-wide install: `sudo make install`
 
 ### Running Scripts
-To execute an Imp script, use the following command:
+Execute Imp scripts with:
 ```bash
 ./imp [script-file.imp]
 ```
-For example, to run a script named `example.imp`, use:
+Example:
 ```bash
 ./imp example.imp
 ```
-If you have installed Imp, you can run scripts from any location.
+After installation, run Imp from any directory.
+
+## Documentation
+For detailed documentation, visit [Imp Wiki](https://github.com/ernivani/imp/wiki/Get-started).
 
 ## Contributing
-We welcome contributions! Please fork the repository and submit a pull request with your changes.
+Contributions are welcome. Fork the repo and submit pull requests with your changes.
 
 ## License
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-```
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
