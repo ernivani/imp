@@ -61,3 +61,67 @@ int evaluate_condition(const char* condition) {
     }
     return 0; 
 }
+
+char* process_formatted_string(const char* str, const char* end) {
+    size_t estimatedSize = strlen(str) + 1;
+    char* buffer = malloc(estimatedSize); // Initial buffer allocation
+    if (!buffer) {
+        perror("Memory allocation failed");
+        return NULL;
+    }
+
+    char* p = buffer;
+    while (*str && str < end) { // Check against end pointer
+        if (*str == '{') {
+            str++; // Skip the '{'
+            char varName[100]; // Assuming variable names won't exceed 99 characters
+            int i = 0;
+            while (*str != '}' && *str != '\0' && i < 99) {
+                varName[i++] = *str++;
+            }
+            varName[i] = '\0'; // Null-terminate the variable name
+
+            if (*str == '}') {
+                str++; // Skip the '}'
+                Variable* var = get_variable(varName);
+                if (var) {
+                    char varValue[256]; // Temporary buffer for variable value
+                    size_t len = 0;
+                    if (var->type == INT_TYPE) {
+                        len = sprintf(varValue, "%d", var->i_value);
+                    } else if (var->type == FLOAT_TYPE) {
+                        len = sprintf(varValue, "%g", var->f_value);
+                    } else if (var->type == STRING_TYPE) {
+                        len = sprintf(varValue, "%s", var->s_value);
+                    }
+                    if (len + (p - buffer) >= estimatedSize) {
+                        estimatedSize += len + 256; // Increase buffer size
+                        size_t offset = p - buffer;
+                        buffer = realloc(buffer, estimatedSize);
+                        if (!buffer) {
+                            perror("Memory reallocation failed");
+                            return NULL;
+                        }
+                        p = buffer + offset; // Update pointer after reallocation
+                    }
+                    strcpy(p, varValue);
+                    p += len;
+                }
+            }
+        } else {
+            if (p - buffer >= estimatedSize - 1) {
+                estimatedSize += 256; // Increase buffer size
+                size_t offset = p - buffer;
+                buffer = realloc(buffer, estimatedSize);
+                if (!buffer) {
+                    perror("Memory reallocation failed");
+                    return NULL;
+                }
+                p = buffer + offset; // Update pointer after reallocation
+            }
+            *p++ = *str++; // Copy the character as is
+        }
+    }
+    *p = '\0'; // Null-terminate the buffer
+    return buffer;
+}
