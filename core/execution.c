@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <sys/types.h>
 
 void run_file(const char* filename, int debug_mode) {
     FILE* file = fopen(filename, "r");
@@ -73,7 +74,7 @@ void run_file(const char* filename, int debug_mode) {
             char* end = strchr(start, '\"');
             if (end) {
                 *end = '\0';
-                printf("%s", start);
+                printf("%s", process_formatted_string(start, end));
             }
         }
         else if (strncmp(trimmed_line, "println(\"", 9) == 0) {
@@ -81,7 +82,7 @@ void run_file(const char* filename, int debug_mode) {
             char* end = strchr(start, '\"');
             if (end) {
                 *end = '\0';
-                printf("%s\n", start);
+                printf("%s\n", process_formatted_string(start, end));
             }
         }
         else if (strstr(trimmed_line, "print(") == trimmed_line) {
