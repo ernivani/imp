@@ -12,7 +12,7 @@ This section will guide you through the initial setup and basic usage of Imp.
 - Make
 
 ### Building the Project
-1. Clone the repository: `git clone [repository-url]`
+1. Clone the repository: `git clone https://github.com/ernivani/imp.git`
 2. Navigate to the project directory: `cd imp`
 3. Compile the source code:
    ```
