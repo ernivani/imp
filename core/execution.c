@@ -134,7 +134,54 @@ void run_file(const char* filename, int debug_mode) {
                 }
             }
         }
-        
+
+
+        else if (strncmp(trimmed_line, "while", 5) == 0) {
+            fpos_t loop_start;
+            fgetpos(file, &loop_start);
+            int loop_start_line = line_number;
+
+            while (1) {
+                char* condition = trimmed_line + 5;
+                int condition_true = evaluate_condition(condition);
+
+                if (!condition_true) {
+                    // Skip the loop body
+                    int braces_count = 1;
+                    while (braces_count > 0 && (read = getline(&line, &len, file)) != -1) {
+                        char* temp_line = trim_whitespace(line);
+                        if (temp_line[0] == '{') {
+                            braces_count++;
+                        }
+                        else if (temp_line[0] == '}') {
+                            braces_count--;
+                        }
+                    }
+                    break; // Exit the while(1) loop
+                }
+
+                // Execute loop body
+                while ((read = getline(&line, &len, file)) != -1) {
+                    char* temp_line = trim_whitespace(line);
+                    line_number++;
+                    
+
+
+                    if (temp_line[0] == '}') {
+                        // Loop end, reset to the start of the loop condition
+                        fsetpos(file, &loop_start);
+                        line_number = loop_start_line;
+                        break;
+                    }
+
+                    printf("Loop body line: '%s'\n", temp_line);
+                }
+
+                printf("Loop end\n");
+            }
+        }
+
+                
         else if (trimmed_line[0] == '}') {
             execute_block = 1;
         }

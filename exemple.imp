@@ -1,33 +1,35 @@
 // Declare variables
 int counter = 10;
-float temperature = 36.6;
-string name = "ImpScript";
-
+// float temperature = 36.6;
+// string name = "ImpScript";
+// 
 // Print variables
-print("Counter value: ");
-println(counter);
-
-println("Temperature: {temperature}");
-
-println("Name: {name}");
-
+// print("Counter value: ");
+// println(counter);
+// 
+// println("Temperature: {temperature}");
+// 
+// println("Name: {name}");
+// 
 // Conditional statement 
-if (counter > 5) {
-    println("Counter is greater than 5");
-} 
-
-if (counter == 5) {
-    println("Counter is equal to 5");
-} else {
-    println("Counter is not equal to 5");
-}
+// if (counter > 5) {
+    // println("Counter is greater than 5");
+// } 
+// 
+// if (counter == 5) {
+    // println("Counter is equal to 5");
+// } else {
+    // println("Counter is not equal to 5");
+// }
 
 // Loop statement
-// int i = 0;
-// while (i < counter) {
-//     println(i);
-//     i = i + 1;
-// }
+int i = 1;
+println("i: {i}");
+println("counter: {counter}");
+while (counter > i) {
+    println(i);
+    i = i + 1;
+}
 
 //Function declaration
 // int fun add(int a, int b) {
@@ -36,11 +38,11 @@ if (counter == 5) {
 
 
 // Update and print a variable
-counter = 20;
-println("Updated counter value: {counter}");
+// counter = 20;
+// println("Updated counter value: {counter}");
 
-// handle error
-aaa = 10;
-zeafza;
+// // handle error
+// aaa = 10;
+// zeafza;
 
-fé"azfzae"
+// fé"azfzae"

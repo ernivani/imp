@@ -22,7 +22,6 @@ char* trim_whitespace(char* str) {
 }
 
 int evaluate_condition(const char* condition) {
-    // Handle both variable-based and literal comparisons
     char condition_copy[strlen(condition) + 1];
     strcpy(condition_copy, condition);
 
@@ -43,7 +42,7 @@ int evaluate_condition(const char* condition) {
         Variable* var = get_variable(left);
         left_value = var ? var->i_value : atoi(left);
 
-        right_value = atoi(right); // Assuming right side is always a literal
+        right_value = atoi(right);
 
         if (strcmp(operator, "==") == 0) {
             return left_value == right_value;
