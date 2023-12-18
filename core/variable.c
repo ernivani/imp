@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_VAR_COUNT 100
+#define MAX_VAR_NAME_LENGTH 50
+
 Variable variables[MAX_VAR_COUNT];
 int var_count = 0;
 
@@ -15,16 +18,20 @@ Variable* get_variable(const char* name) {
     return NULL;
 }
 
-
-
 void create_or_update_variable(const char* name, const char* value, int type) {
     Variable* var = get_variable(name);
-    
+
     if (var == NULL) {
         if (var_count >= MAX_VAR_COUNT) {
-            printf("Error: Maximum number of variables reached\n");
+            fprintf(stderr, "Error: Maximum number of variables reached\n");
             return;
         }
+
+        if (var_count >= MAX_VAR_COUNT) {
+            fprintf(stderr, "Error: Maximum number of variables reached\n");
+            return;
+        }
+
         var = &variables[var_count++];
         strncpy(var->name, name, MAX_VAR_NAME_LENGTH - 1);
         var->name[MAX_VAR_NAME_LENGTH - 1] = '\0';
@@ -35,7 +42,6 @@ void create_or_update_variable(const char* name, const char* value, int type) {
         }
     }
 
-
     if (type == INT_TYPE) {
         var->type = INT_TYPE;
         var->i_value = atoi(value);
@@ -44,10 +50,14 @@ void create_or_update_variable(const char* name, const char* value, int type) {
         var->f_value = atof(value);
     } else if (type == STRING_TYPE) {
         if (var->type == STRING_TYPE) {
-            free(var->s_value); 
+            free(var->s_value);
         }
         var->type = STRING_TYPE;
         var->s_value = malloc(strlen(value) + 1);
+        if (var->s_value == NULL) {
+            fprintf(stderr, "Error: Memory allocation failed\n");
+            exit(EXIT_FAILURE);
+        }
         strcpy(var->s_value, value);
     }
 }
