@@ -38,6 +38,8 @@ if (counter == 5) {
 // Update and print a variable
 counter = 20;
 println("Updated counter value: {counter}");
+counter = 20;
+println("Updated counter value: {counter}");
 
 // handle error
 aaa = 10;

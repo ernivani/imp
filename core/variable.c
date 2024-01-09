@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_VAR_COUNT 100
-#define MAX_VAR_NAME_LENGTH 50
 
 Variable variables[MAX_VAR_COUNT];
 int var_count = 0;

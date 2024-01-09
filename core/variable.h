@@ -1,8 +1,8 @@
 #ifndef VARIABLE_H
 #define VARIABLE_H
 
-#define MAX_VAR_NAME_LENGTH 256
 #define MAX_VAR_COUNT 256
+#define MAX_VAR_NAME_LENGTH 50
 
 typedef struct {
     char name[MAX_VAR_NAME_LENGTH];

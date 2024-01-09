@@ -145,7 +145,7 @@ void run_file(const char* filename, int debug_mode) {
         else {
             if (strchr(trimmed_line, '=')) {
                 char* var_name = strtok(trimmed_line, " =");
-                char* new_value = strtok(NULL, ";");
+                char* new_value = trim_whitespace(strtok(NULL, ";") + 1);
                 if (var_name && new_value) {
                     new_value = trim_whitespace(new_value);
                     Variable* var = get_variable(var_name);
