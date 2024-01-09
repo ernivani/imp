@@ -133,13 +133,13 @@ void run_file(const char* filename, int debug_mode) {
                     }
                 }
             }
+            else {
+                execute_block = 1;
+            }
         }
         
         else if (trimmed_line[0] == '}') {
             execute_block = 1;
-        }
-        else if (execute_block) {
-            execute_block = 0;
         }
 
         else {
